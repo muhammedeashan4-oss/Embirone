@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Embrione — Team Onboarding & Moderation System
+
+A full-stack platform for team registration, application moderation, and public team discovery, built for the Embrione recruitment challenge.
+
+## Features
+
+- Member registration with 11 fields
+- Live profile preview
+- Client-side profile photo conversion to WebP
+- Supabase Storage photo uploads
+- Admin authentication
+- Application approval and rejection workflow
+- Public directory of approved members
+- Domain and position filtering
+- Responsive user interface
+- Supabase database integration
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Vercel
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Home page |
+| `/register` | Register as a team member |
+| `/admin` | Review and moderate applications |
+| `/team` | Browse approved team members |
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/muhammedeashan4-oss/Embirone.git
+cd Embirone
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env.local` file in the project root with your Supabase project URL and public anonymous key:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+Replace the placeholders with the corresponding values from your Supabase project settings. Never commit `.env.local` or expose your Supabase service-role key.
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 5. Create a production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Supabase Setup
 
-To learn more about Next.js, take a look at the following resources:
+Configure the `members` table, the `admins` table, appropriate Row Level Security policies, and the `member-photos` Storage bucket in your Supabase project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ensure that only approved member profiles are publicly readable and that moderation actions are restricted to authorized administrators.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deploy the project through [Vercel](https://vercel.com/). Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to the project's environment variables before deploying.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Muhammed Eashan
+
+## License
+
+Developed as part of the Embrione recruitment challenge.
